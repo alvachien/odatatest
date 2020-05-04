@@ -53,6 +53,22 @@ namespace ODataTest.Controllers
             }
         }
 
+        // Update
+        [HttpPut]
+        public IActionResult UpdateProduct(int key, [FromBody] Product prod)
+        {
+            Product retval;
+            if (_data.TryGetValue(key, out retval))
+            {
+                return Updated(retval);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
         // [HttpGet]
         [HttpPost]
         public IActionResult MostExpensive()
