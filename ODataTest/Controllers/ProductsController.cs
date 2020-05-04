@@ -55,7 +55,7 @@ namespace ODataTest.Controllers
 
         // Update
         [HttpPut]
-        public IActionResult UpdateProduct(int key, [FromBody] Product prod)
+        public IActionResult Put([FromODataUri] int key, Product prd)
         {
             Product retval;
             if (_data.TryGetValue(key, out retval))
